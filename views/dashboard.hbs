@@ -1,0 +1,29 @@
+<h1>Dashboard view</h1>
+<h3>Welcome {{name}}</h3>
+Here is your data:
+
+{{#if userData}}
+    <table class="stripped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each userData}}
+                <tr>
+                    <td><a href="userData/{{_id}}"></a>{{title}}</td>
+                    <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss'}}</td>
+                    <td><span class="dash-status">{{status}}</span></td>
+                    <td></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+{{else}}
+    <p>no UserData currently available</p>
+
+{{/if}}
